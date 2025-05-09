@@ -1,0 +1,22 @@
+name: show-directory
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+
+      - name: Setup
+        run: make setup
+      
+      - name: Test
+        run: make test
+
+      - name: Linter
+        run: make lint
