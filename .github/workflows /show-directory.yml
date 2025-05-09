@@ -9,8 +9,6 @@ jobs:
         with:
           node-version: '18.x'
           cache: 'npm'
-          
-      - uses: .github/workflows
 
       - name: Setup
         id: S01
@@ -18,8 +16,9 @@ jobs:
       
       - name: Test
         id: T01
-        run: tests
+        run: make test
 
       - name: Linter
         id: L01
         run: make lint
+
